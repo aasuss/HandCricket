@@ -1,0 +1,73 @@
+body {
+  overflow-x: hidden;
+}
+
+.hand {
+  position: relative;
+  top: 100px;
+  height: 450px;
+  transform: rotate(90deg);
+}
+
+#player-hand-div {
+  position: absolute;
+  top: 200px;
+  right: 10px;
+  transform: rotate(180deg);
+}
+
+#controls {
+  position: absolute;
+  display: flex;
+  bottom: 10px;
+  padding: 2px 4px 2px 4px;
+  border-radius: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  flex-wrap: nowrap;
+  background-color: rgb(73, 75, 77);
+}
+
+.control {
+  background-color: #f1f1f1;
+  border-radius: 30px;
+  width: 75px;
+  margin: 7px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+
+#score-board {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0);
+  width: 20vw;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+  font-family: Verdana;
+}
+
+#current-score {
+  background-color: rgb(73, 75, 77);
+  margin: 0px 5%;
+  border-radius: 25px;
+  font-size: 3em;
+  width: 90%;
+  color: #f1f1f1;
+}
+
+#last-inning-score {
+  background-color: rgb(175, 177, 180);
+  margin: 0px 20%;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-radius: 0px 0px 25px 25px;
+  font-size: 1.4em;
+  width: 60%;
+  color: #000000;
+}
+
+#inning {
+  /* background-color: rgb(75, 79, 83); */
+}
