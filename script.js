@@ -16,6 +16,11 @@ function ticTacToe()
     var startnewBtn = document.getElementById("startnew");
     modal.style.display = "block";
 
+    function onGetData(data) 
+    {
+        console.log(data, " Log by Callback");
+    }
+
     startnewBtn.onclick = function () {
         if (usernameInput.value != "") {
           modal.style.display = "none";
@@ -25,24 +30,14 @@ function ticTacToe()
         }
       };
     
-      enteroldBtn.onclick = function () {
-        if (usernameInput.value != "" && gameroomInput.value != "") {
-          modal.style.display = "none";
-          gameConn = new GameConnection(
-            "TTT",
-            usernameInput.value,
-            gameroomInput.value
-          );
-          gameConn.onData(onGetData);
-        }
-      };
-    
-    function onGetData(data) 
+    enteroldBtn.onclick = function () 
     {
-        console.log(data, " Log by Callback");
-        myturn=true;
-        var cell = document.getElementById(data);  
-    }
+        if (usernameInput.value != "" && gameroomInput.value != "") {
+        modal.style.display = "none";
+        gameConn = new GameConnection("TTT", usernameInput.value, gameroomInput.value);
+        gameConn.onData(onGetData);
+        }
+    };
    
     document.getElementById("0").onclick = function() {myFunction()};
     document.getElementById("1").onclick = function() {myFunction1()};
