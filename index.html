@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
     <style>
         body {
@@ -12,12 +13,36 @@
           background-attachment: fixed;
           background-size: 100% 115%;
         }
-        </style>
+    </style>
     <title>Hand Cricket</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+ <button id="myBtnn" >TOSSss</button>
+
+<!-- The Modal -->
+<div id="myModal1" class="modal1">
+
+  <!-- Modal content -->
+  <div class="modal-content1">
+    <span class="close1">&times;</span>
+    <div class='container'>
+        <div id="coin" class=''>
+          <div id="heads" class="heads"></div>
+          <div id="tails" class="tails"></div>
+        </div>
+        <button id="flip">TOSS</button>
+        <p>Heads: <span id="headsCount">0</span> Tails: <span id="tailsCount">0</span></p>
+        <p><span id="status"></span></p>
+      </div>
+  </div>
+
+</div>
+
+
+
     <body>
         <div id="myModal" class="modal">
             <div class="modal-content">
@@ -61,10 +86,6 @@
                 50 - 5
             </div>
         </div>
-        <button id="click" type="button">CLICK ME</button>
-<p>
-    You got: <span id="result"></span>
-</p>
         <div id="hands">
             <div id="opponent-hand-div">
                 <img class="hand" id="opponent-hand" src="/images/FULL.svg" alt="">

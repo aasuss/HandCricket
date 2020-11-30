@@ -8,6 +8,7 @@ function ticTacToe()
     var runs2 = 0;
     var wickets1 = 0;
     var wickets2 = 0;
+    
 
     var modal = document.getElementById("myModal");
     var usernameInput = document.getElementById("username");
@@ -17,21 +18,91 @@ function ticTacToe()
     modal.style.display = "block";
 
 
-    document.getElementById('click').onclick = click;
 
-var heads = 0;
-var tails = 0;
-function click() {  
-    x = (Math.floor(Math.random() * 2) == 0);
-    if(x){
-    	flip("heads");
-    }else{
-        flip("tails");
+
+    // Get the modal
+var modal1 = document.getElementById("myModal1");
+var btn = document.getElementById("myBtnn");
+var span = document.getElementsByClassName("close1")[0]; 
+btn.onclick = function() {
+  modal1.style.display = "block";
+}
+span.onclick = function() {
+  modal1.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal1) {
+    modal1.style.display = "none";
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+const coin = document.querySelector('#coin');
+const button = document.querySelector('#flip');
+const status = document.querySelector('#status');
+const heads = document.querySelector('#headsCount');
+const tails = document.querySelector('#tailsCount');
+
+let headsCount = 0;
+let tailsCount = 0;
+
+
+function deferFn(callback, ms) {
+  setTimeout(callback, ms); 
+}
+
+function processResult(result) {
+   if (result === 'heads') {
+      headsCount++;
+      heads.innerText = headsCount;
+    } else {
+      tailsCount++;
+      tails.innerText = tailsCount;
     }
-};
-function flip(coin) {
-    document.getElementById("result").innerHTML = coin;
-};
+    status.innerText = result.toUpperCase();
+}
+
+function flipCoin() {
+  coin.setAttribute('class', '');
+  const random = Math.random();
+  const result = random < 0.5 ? 'heads' : 'tails';
+ deferFn(function() {
+   coin.setAttribute('class', 'animate-' + result);
+   deferFn(processResult.bind(null, result), 2900);
+ }, 100);
+}
+
+button.addEventListener('click', flipCoin);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     function onGetData(data) 
     {
