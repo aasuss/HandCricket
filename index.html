@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    <style>
+        body {
+          background-image: url('https://cdn4.vectorstock.com/i/1000x1000/28/93/cricket-stadium-background-vector-15522893.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: 100% 115%;
+        }
+        </style>
     <title>Hand Cricket</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -53,12 +61,16 @@
                 50 - 5
             </div>
         </div>
+        <button id="click" type="button">CLICK ME</button>
+<p>
+    You got: <span id="result"></span>
+</p>
         <div id="hands">
             <div id="opponent-hand-div">
-                <img class="hand" id="opponent-hand" src="/images/five.svg" alt="">
+                <img class="hand" id="opponent-hand" src="/images/FULL.svg" alt="">
             </div>
             <div id="player-hand-div">
-                <img class="hand" id="player-hand" src="/images/two.svg" alt="">
+                <img class="hand" id="player-hand" src="/images/FULL.svg" alt="">
             </div>
         </div>
         <div id="controls">
