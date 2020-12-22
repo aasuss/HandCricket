@@ -342,7 +342,7 @@ button {
 }
 
 .heads {
-    background-image: url("https://en.numista.com/catalogue/photos/inde/2311-original.jpg");
+    background-image: url("./images/head.png");
 }
 
 .animate-heads {
@@ -360,7 +360,7 @@ button {
 }
 
 .tails {
-    background-image: url("https://en.numista.com/catalogue/photos/inde/3165-original.jpg");
+    background-image: url("./images/tail.png");
   transform: rotateY(-180deg);
 }
 

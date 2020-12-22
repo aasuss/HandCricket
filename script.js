@@ -15,6 +15,7 @@ function ticTacToe()
     var gameroomInput = document.getElementById("gameroom");
     var enteroldBtn = document.getElementById("enterold");
     var startnewBtn = document.getElementById("startnew");
+    var ihavecodeBtn = document.getElementById("ihavecode")
     modal.style.display = "block";
 
 
@@ -149,17 +150,19 @@ button.addEventListener('click', flipCoin);
 
     startnewBtn.onclick = function () {
         if (usernameInput.value != "") {
-          modal.style.display = "none";
+        //   modal.style.display = "none";
           gameConn = new GameConnection("TTT", usernameInput.value, null);
           gameConn.onData(onGetData);
-          gamecodeDiv.innerHTML = gameConn.roomId;
+          gamecodeDiv.innerHTML = "Share this code : " + gameConn.roomId;
+          ihavecodeBtn.style.display = "none";
+          startnewBtn.style.display = "none"
         }
       };
     
     enteroldBtn.onclick = function () 
     {
         if (usernameInput.value != "" && gameroomInput.value != "") {
-        modal.style.display = "none";
+        // modal.style.display = "none";
         gameConn = new GameConnection("TTT", usernameInput.value, gameroomInput.value);
         gameConn.onData(onGetData);
         }
