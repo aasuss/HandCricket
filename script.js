@@ -28,6 +28,7 @@ var span = document.getElementsByClassName("close1")[0];
 btn.onclick = function() {
   modal1.style.display = "block";
 }
+
 span.onclick = function() {
   modal1.style.display = "none";
 }
@@ -107,9 +108,15 @@ button.addEventListener('click', flipCoin);
 
     function onGetData(data) 
     {
+        if(data.username){
+            modal.style.display = "none";
+            return ;
+        }
+
         console.log(data, " Log by Callback");
         var num = document.getElementById(data);
         leftHand(data);
+        
     }
     var n;
     function leftHand(n)
@@ -153,7 +160,7 @@ button.addEventListener('click', flipCoin);
         //   modal.style.display = "none";
           gameConn = new GameConnection("TTT", usernameInput.value, null);
           gameConn.onData(onGetData);
-          gamecodeDiv.innerHTML = "Share this code : " + gameConn.roomId;
+          gamecodeDiv.innerHTML = "<h2> Share this code : " + gameConn.roomId + "</h2> <h4> Waiting for the other player to join...</h4>";
           ihavecodeBtn.style.display = "none";
           startnewBtn.style.display = "none"
         }
@@ -161,12 +168,24 @@ button.addEventListener('click', flipCoin);
     
     enteroldBtn.onclick = function () 
     {
+        const username = usernameInput.value;
         if (usernameInput.value != "" && gameroomInput.value != "") {
         // modal.style.display = "none";
         gameConn = new GameConnection("TTT", usernameInput.value, gameroomInput.value);
         gameConn.onData(onGetData);
+        gameConn.sendData({username});
+        modal.style.display = "none";
         }
     };
+
+    ihavecodeBtn.onclick = function(){
+        startnewBtn.style.display = "none";
+        gameroomInput.style.display = "block";
+        ihavecodeBtn.style.display = "none";
+        enteroldBtn.style.display = "block";
+
+
+    }
    
     document.getElementById("0").onclick = function() {myFunction()};
     document.getElementById("1").onclick = function() {myFunction1()};
