@@ -16,6 +16,7 @@ class GameState {
   }
 
   makeMove(move) {
+    move = parseInt(move);
     if (!this.player1.currentMove) {
       this.player1.currentMove = move;
       document.getElementById("player-hand").src = "/images/" + move + ".svg";
