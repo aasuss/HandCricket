@@ -21,7 +21,6 @@ function ticTacToe() {
     } else {
       // leftHand(data);
       gameState.recieveMove(data);
-
     }
 
     console.log(data, " Log by Callback");
@@ -71,10 +70,10 @@ function ticTacToe() {
   for (var i = 1; i < 7; i++)
     (function (i) {
       controls[i - 1].onclick = function () {
-      //   document.getElementById("player-hand").src = "/images/" + i + ".svg";
-      //   gameConn.sendData(JSON.stringify(i));
-      gameState.makeMove(i);
-    };
+        //   document.getElementById("player-hand").src = "/images/" + i + ".svg";
+        //   gameConn.sendData(JSON.stringify(i));
+        gameState.makeMove(i);
+      };
       console.log(i);
     })(i);
 

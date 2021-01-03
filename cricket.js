@@ -1,8 +1,7 @@
 class GameState {
   constructor() {
     this.turn = null;
-    this.ball = 1;
-    this.myTurn = 1;
+    this.ball = 0;
     this.totalWickets = 3;
 
     this.player1 = {};
@@ -14,69 +13,66 @@ class GameState {
     this.player2.currentMove = 0;
     this.player2.runs = 0;
     this.player2.wickets = 0;
-    
   }
 
   makeMove(move) {
-    if(!this.player1.currentMove){
+    if (!this.player1.currentMove) {
       this.player1.currentMove = move;
       document.getElementById("player-hand").src = "/images/" + move + ".svg";
       gameConn.sendData(JSON.stringify(move));
-      
+
       if (this.player2.currentMove) {
         //show all moves
-        document.getElementById("opponent-hand").src = "/images/" + this.player2.currentMove + ".svg";
+        document.getElementById("opponent-hand").src =
+          "/images/" + this.player2.currentMove + ".svg";
         this.evaluateBall();
-        this.changeBall();
-      } 
-
-      
+      }
     }
-    
   }
 
   recieveMove(move) {
+    move = parseInt(move);
     if (this.player1.currentMove) {
       // show all moves
+      this.player2.currentMove = move;
       document.getElementById("opponent-hand").src = "/images/" + move + ".svg";
       this.evaluateBall();
-      this.changeBall();
     } else {
+      console.log("hua");
       this.player2.currentMove = move;
     }
   }
 
-
-
-  setTurn(turn) {
-    this.turn = turn;
-  }
-
-  changeBall() {
-    this.ball = this.ball + 1;
-
-    this.player1.currentMove = 0;
-    this.player2.currentMove = 0;
-    
-  }
-  
-  evaluateBall(){
-    this.ball += 1; 
-    if(this.player1.currentMove == this.player2.currentMove){
-      this[this.turn].wickets += 1 ; 
-    }
-    if(this.player1.currentMove != this.player2.currentMove){
+  evaluateBall() {
+    this.ball += 1;
+    if (this.player1.currentMove == this.player2.currentMove) {
+      this[this.turn].wickets += 1;
+      if (this[this.turn].wickets == this.totalWickets) {
+        let other = this.turn == "player1" ? "player2" : "player1";
+        this.turn = other;
+      }
+    } else {
+      console.log(this[this.turn].currentMove);
       this[this.turn].runs += this[this.turn].currentMove;
     }
-    
-    setTimeout(function (){
-      document.getElementById("player-hand").src = "/images/7.svg";
-      document.getElementById("opponent-hand").src = "/images/7.svg";
-      document.getElementById("current-score").innerHTML = this.player1.runs + " - " + this.player1.wickets ;
-      document.getElementById("last-inning-score").innerHTML = this.player2.runs + " - " + this.player2.wickets ;
-    }.bind(this),2000)
-    console.log(this)
+
+    setTimeout(
+      function () {
+        document.getElementById("player-hand").src = "/images/7.svg";
+        document.getElementById("opponent-hand").src = "/images/7.svg";
+        document.getElementById("current-score").innerHTML =
+          this[this.turn].runs + " - " + this[this.turn].wickets;
+
+        let other = this.turn == "player1" ? "player2" : "player1";
+
+        document.getElementById("last-inning-score").innerHTML =
+          this[other].runs + " - " + this[other].wickets;
+
+        this.player1.currentMove = 0;
+        this.player2.currentMove = 0;
+        console.log(this);
+      }.bind(this),
+      2000
+    );
   }
 }
-
-

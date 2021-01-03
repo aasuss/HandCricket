@@ -6,16 +6,15 @@ body {
   position: relative;
   top: 100px;
   height: 450px;
-  transform: rotate(90deg) ;
+  transform: rotate(90deg);
 }
 
 #player-hand-div {
   position: absolute;
   top: 20px;
   right: 10px;
-  transform: rotate(180deg) ;
+  transform: rotate(180deg);
   transform: scaleX(-1);
-  
 }
 
 #controls {
@@ -193,32 +192,9 @@ body {
   color: white;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-body {font-family: Arial, Helvetica, sans-serif;}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 /* The Modal (background) */
 .modal1 {
@@ -231,8 +207,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content */
@@ -260,54 +236,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
   cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 h2 {
-  margin: .25rem;
+  margin: 0.25rem;
 }
 
 div.container {
@@ -328,7 +258,6 @@ button {
   height: 15rem;
   margin: 2rem 0rem;
   transform-style: preserve-3d;
-
 }
 
 #coin div {
@@ -342,7 +271,7 @@ button {
 }
 
 .heads {
-    background-image: url("./images/head.png");
+  background-image: url("./images/head.png");
 }
 
 .animate-heads {
@@ -360,7 +289,7 @@ button {
 }
 
 .tails {
-    background-image: url("./images/tail.png");
+  background-image: url("./images/tail.png");
   transform: rotateY(-180deg);
 }
 
@@ -377,4 +306,3 @@ button {
     transform: rotateY(1620deg);
   }
 }
-
