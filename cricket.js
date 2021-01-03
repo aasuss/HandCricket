@@ -39,7 +39,6 @@ class GameState {
       document.getElementById("opponent-hand").src = "/images/" + move + ".svg";
       this.evaluateBall();
     } else {
-      console.log("hua");
       this.player2.currentMove = move;
     }
   }
@@ -53,7 +52,6 @@ class GameState {
         this.turn = other;
       }
     } else {
-      console.log(this[this.turn].currentMove);
       this[this.turn].runs += this[this.turn].currentMove;
     }
 
@@ -68,12 +66,10 @@ class GameState {
 
         document.getElementById("last-inning-score").innerHTML =
           this[other].runs + " - " + this[other].wickets;
-
-        this.player1.currentMove = 0;
-        this.player2.currentMove = 0;
-        console.log(this);
       }.bind(this),
       2000
     );
+    this.player1.currentMove = 0;
+    this.player2.currentMove = 0;
   }
 }

@@ -22,8 +22,6 @@ function ticTacToe() {
       // leftHand(data);
       gameState.recieveMove(data);
     }
-
-    console.log(data, " Log by Callback");
   }
 
   function leftHand(n) {
