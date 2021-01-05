@@ -72,7 +72,6 @@ function ticTacToe() {
         //   gameConn.sendData(JSON.stringify(i));
         gameState.makeMove(i);
       };
-      console.log(i);
     })(i);
 
   // const heads = document.querySelector("#headsCount");

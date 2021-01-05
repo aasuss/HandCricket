@@ -3,6 +3,7 @@ class GameState {
     this.turn = null;
     this.ball = 0;
     this.totalWickets = 3;
+    this.innings = 1;
 
     this.player1 = {};
     this.player1.currentMove = 0;
@@ -50,6 +51,7 @@ class GameState {
       if (this[this.turn].wickets == this.totalWickets) {
         let other = this.turn == "player1" ? "player2" : "player1";
         this.turn = other;
+        this.innings = 2;
       }
     } else {
       this[this.turn].runs += this[this.turn].currentMove;
@@ -69,7 +71,31 @@ class GameState {
       }.bind(this),
       2000
     );
+
     this.player1.currentMove = 0;
     this.player2.currentMove = 0;
+    if (this.innings == 2) {
+      let other = this.turn == "player1" ? "player2" : "player1";
+      if (this[this.turn].runs > this[other].runs) {
+        if(this.turn == "player1"){
+          // I win
+          
+        }
+        else{
+          // I lose
+        }
+      } 
+      else if(this[this.turn].runs == this[other].runs && this[this.turn].wickets == this[other].wickets ) {
+        // aap dono ghar jaaye.....
+      }
+      else if (this[this.turn].wickets == this.totalWickets) {
+        if(this.turn == "player1"){
+          // I lose
+        }
+        else{
+          // I win
+        }
+      }
+    }
   }
 }
