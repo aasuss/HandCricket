@@ -47,12 +47,15 @@ class GameState {
 
   evaluateBall() {
     var gameResult = document.getElementById("result");
+    var gameResultParent = document.getElementById("result-parent");
     this.ball += 1;
     if (this.player1.currentMove == this.player2.currentMove) {
       this[this.turn].wickets += 1;
       if (this[this.turn].wickets == this.totalWickets) {
         let other = this.turn == "player1" ? "player2" : "player1";
-        this.turn = other;
+        if(this.innings != 2){
+          this.turn = other ;
+        }
         this.innings = 2;
       }
     } else {
@@ -81,24 +84,32 @@ class GameState {
       if (this[this.turn].runs > this[other].runs) {
         if(this.turn == "player1"){
           // I win
-          gameResult.style.display = "block";
-          gameResult.innerHTML = "<h2> PLayer1 won!! </h2>"
+          gameResultParent.style.display = "flex";
+          gameResult.innerHTML = "<h2> You won!!! </h2>"
           
 
         }
         else{
-          // I lose
+          //i lose
+          gameResultParent.style.display = "flex";
+          gameResult.innerHTML = "<h2> You lose!!! </h2>"
         }
       } 
       else if(this[this.turn].runs == this[other].runs && this[this.turn].wickets == this[other].wickets ) {
         // aap dono ghar jaaye.....
+        gameResultParent.style.display = "flex";
+        gameResult.innerHTML = "<h2> You both played well!!! </h2>"
       }
       else if (this[this.turn].wickets == this.totalWickets) {
         if(this.turn == "player1"){
-          // I lose
+          // you lose
+          gameResultParent.style.display = "flex";
+          gameResult.innerHTML = "<h2> You lose!!! </h2>"
         }
         else{
           // I win
+          gameResultParent.style.display = "flex";
+          gameResult.innerHTML = "<h2> You won!!! </h2>"
         }
       }
     }
