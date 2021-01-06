@@ -14,6 +14,7 @@ class GameState {
     this.player2.currentMove = 0;
     this.player2.runs = 0;
     this.player2.wickets = 0;
+
   }
 
   makeMove(move) {
@@ -45,6 +46,7 @@ class GameState {
   }
 
   evaluateBall() {
+    var gameResult = document.getElementById("result");
     this.ball += 1;
     if (this.player1.currentMove == this.player2.currentMove) {
       this[this.turn].wickets += 1;
@@ -79,7 +81,10 @@ class GameState {
       if (this[this.turn].runs > this[other].runs) {
         if(this.turn == "player1"){
           // I win
+          gameResult.style.display = "block";
+          gameResult.innerHTML = "<h2> PLayer1 won!! </h2>"
           
+
         }
         else{
           // I lose

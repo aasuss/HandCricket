@@ -58,6 +58,13 @@ body {
   color: #f1f1f1;
 }
 
+#result {
+  background-color: red;
+  font-size: large;
+  color: green;
+  display: none;
+}
+
 #last-inning-score {
   background-color: rgb(175, 177, 180);
   margin: 0px 20%;
